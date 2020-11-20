@@ -1,6 +1,6 @@
 import { renderHook, act } from "@testing-library/react-hooks";
 import { useState } from "react";
-import { useStableMemo } from "..";
+import useStableMemo from "..";
 
 function hooksOfTest() {
   const [count, setCount] = useState(0);

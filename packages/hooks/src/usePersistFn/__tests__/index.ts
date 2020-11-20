@@ -1,5 +1,5 @@
-import { useState, useCallback } from "react";
-import { usePersistFn } from "..";
+import { useState } from "react";
+import usePersistFn from "..";
 import { renderHook, act } from "@testing-library/react-hooks";
 
 describe("usePersistFn测试用例", function () {

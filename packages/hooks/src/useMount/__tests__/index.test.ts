@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useMount } from "..";
+import useMount from "..";
 import { renderHook, act } from "@testing-library/react-hooks";
 
 describe("测试只执行一次effect的用例", function () {

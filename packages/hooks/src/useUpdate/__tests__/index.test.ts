@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 import { renderHook, act } from "@testing-library/react-hooks";
-import { useUpdate } from "..";
-import { usePersistFn } from "../../usePersistFn";
+import useUpdate from "..";
+import usePersistFn from "../../usePersistFn";
 
 describe("useUpdate", () => {
   it("should update", () => {

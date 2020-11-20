@@ -1,5 +1,7 @@
 import { EffectCallback, useEffect } from "react";
 
-export function useEffectOnce(effectFn: EffectCallback) {
+function useEffectOnce(effectFn: EffectCallback) {
   useEffect(effectFn, []);
 }
+
+export default useEffectOnce;

@@ -1,3 +1,9 @@
-import { useEffectOnce } from "../useEffectOnce";
+import useEffectOnce from "../useEffectOnce";
 
-export const useMount = useEffectOnce;
+function useMount(fn: () => void) {
+  useEffectOnce(() => {
+    fn();
+  });
+}
+
+export default useMount;

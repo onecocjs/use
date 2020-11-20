@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { renderHook, act } from "@testing-library/react-hooks";
-import { useStableCallback } from "..";
+import useStableCallback from "..";
 
 describe("useStableCallback测试用例", function () {
   it("测试无依赖多次渲染的情况", function () {
