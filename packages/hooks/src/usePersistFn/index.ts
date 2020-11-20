@@ -1,12 +1,10 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { useStableCallback, Fn } from "../useStableCallback";
-//TODO
-export function usePersistFn<T extends Fn, DEP>(fn: T, deps?: DEP[]) {
+
+export function usePersistFn<T extends Fn>(fn: T) {
   const fnRef = useRef<T>(fn);
-  return useStableCallback(
-    (...args) => {
-      return fnRef.current(args);
-    },
-    [fnRef]
-  );
+
+  fnRef.current = fn;
+
+  return useStableCallback(((...args) => fnRef.current(...args)) as T, [fnRef]);
 }
