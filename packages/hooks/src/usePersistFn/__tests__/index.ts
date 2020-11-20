@@ -12,27 +12,19 @@ describe("usePersistFn测试用例", function () {
         return "xx";
       });
 
-      return {
-        updateState: () => setState(state + 1),
-        fn,
-      };
+      return { state, updateState: () => setState(state + 1), fn };
     });
     const preFn = hooks.result.current.fn;
 
     act(hooks.result.current.updateState);
-    act(() => preFn("xx"));
+    act(() => {
+      preFn("xx");
+    });
     expect(hooks.result.current.fn).toEqual(preFn);
+    act(hooks.result.current.updateState);
+    act(hooks.result.current.updateState);
+    act(hooks.result.current.updateState);
+    expect(hooks.result.current.fn).toEqual(preFn);
+    expect(hooks.result.current.state).toEqual(4);
   });
 });
-
-function h<T, R>(...args: T[]): R {
-  console.log("hello" + name);
-  return null;
-}
-
-const res = h("name");
-
-type Fn = <T, R>(...args: T[]) => R | void;
-type t = typeof h;
-
-type res = t extends Fn ? 1 : 2;
