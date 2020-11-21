@@ -1,15 +1,15 @@
-import { useState } from "react";
-import usePersistFn from "..";
-import { renderHook, act } from "@testing-library/react-hooks";
+import { useState } from 'react';
+import usePersistFn from '..';
+import { renderHook, act } from '@testing-library/react-hooks';
 
-describe("usePersistFn测试用例", function () {
-  it("ce", function () {
+describe('usePersistFn测试用例', function() {
+  it('ce', function() {
     const hooks = renderHook(() => {
       const [state, setState] = useState(0);
 
       const fn = usePersistFn((name: string) => {
-        console.log("hello" + name);
-        return "xx";
+        console.log('hello' + name);
+        return 'xx';
       });
 
       return { state, updateState: () => setState(state + 1), fn };
@@ -18,7 +18,7 @@ describe("usePersistFn测试用例", function () {
 
     act(hooks.result.current.updateState);
     act(() => {
-      preFn("xx");
+      preFn('xx');
     });
     expect(hooks.result.current.fn).toEqual(preFn);
     act(hooks.result.current.updateState);

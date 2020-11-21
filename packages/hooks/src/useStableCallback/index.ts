@@ -1,6 +1,9 @@
-import useStableMemo from "../useStableMemo";
+import useStableMemo from '../useStableMemo';
 
-function useStableCallback<T extends Function, DEP>(func: T, deps?: DEP[]) {
+function useStableCallback<T extends (...args: any[]) => any, DEP>(
+  func: T,
+  deps?: DEP[],
+) {
   return useStableMemo(() => func, deps);
 }
 

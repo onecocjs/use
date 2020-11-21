@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect } from 'react';
 
 interface Options {
   delay: number;
@@ -17,7 +17,7 @@ function useInterval(fn: () => void, options: Options) {
       fnRef.current?.();
     }, delay);
     return () => clearInterval(timerId);
-  }, [delay]);
+  }, [options]);
 }
 
 export default useInterval;
