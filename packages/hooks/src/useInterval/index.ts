@@ -17,7 +17,7 @@ function useInterval(fn: () => void, options: Options) {
       fnRef.current?.();
     }, delay);
     return () => clearInterval(timerId);
-  }, [options]);
+  }, [delay]);
 }
 
 export default useInterval;

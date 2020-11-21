@@ -1,19 +1,20 @@
 import { useEffect, useRef } from 'react';
 import usePersistFn from '../usePersistFn';
 
-export type UseTimeoutReturn = [() => boolean | null, () => void, () => void];
+export type UseTimeoutReturn = {
+  isReady: () => boolean | null;
+  cancel: () => void;
+  run: () => void;
+};
 
 export interface Options {
   delay: number;
   manual?: boolean;
 }
 
-export default function useTimeout(
-  fn: Function,
-  options: Options,
-): UseTimeoutReturn {
+function useTimeout(fn: Function, options: Options): UseTimeoutReturn {
   const ready = useRef<boolean | null>(false);
-  const timeout = useRef<ReturnType<typeof setTimeout>>();
+  const timeout = useRef<ReturnType<typeof setTimeout> | null>();
   const callback = useRef(fn);
   callback.current = fn;
 
@@ -31,14 +32,17 @@ export default function useTimeout(
   const cancel = usePersistFn(() => {
     ready.current = null;
     timeout.current && clearTimeout(timeout.current);
+    timeout.current = null;
   });
 
   useEffect(() => {
-    if (options.manual) {
+    if (!options.manual) {
       run();
       return cancel;
     }
   }, [options.delay]);
 
-  return [isReady, cancel, run];
+  return { isReady, cancel, run };
 }
+
+export default useTimeout;
