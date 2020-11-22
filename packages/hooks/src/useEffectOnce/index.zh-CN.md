@@ -17,7 +17,7 @@ group:
 
 ## 基础用法
 
-<code src="./demo/Demo01.tsx" />
+<code src="./example/Example01.tsx" />
 
 # 函数签名
 

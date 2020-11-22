@@ -1,30 +1,69 @@
-import { useState } from 'react';
+import { times } from 'lodash';
 import usePersistFn from '..';
 import { renderHook, act } from '@testing-library/react-hooks';
 
-describe('usePersistFn测试用例', function() {
-  it('ce', function() {
+describe('usePersistFn', function() {
+  jest.useFakeTimers();
+  it('should same function address', function() {
+    const callback = jest.fn();
     const hooks = renderHook(() => {
-      const [state, setState] = useState(0);
-
-      const fn = usePersistFn((name: string) => {
-        console.log('hello' + name);
-        return 'xx';
-      });
-
-      return { state, updateState: () => setState(state + 1), fn };
+      const fn = usePersistFn(callback);
+      return fn;
     });
-    const preFn = hooks.result.current.fn;
-
-    act(hooks.result.current.updateState);
+    const preFn = hooks.result.current;
+    act(hooks.result.current);
+    hooks.rerender();
+    expect(hooks.result.current).toEqual(preFn);
+    hooks.rerender();
+    hooks.rerender();
+    expect(hooks.result.current).toEqual(preFn);
+  });
+  it('should debounce', function() {
+    const callback = jest.fn();
+    const hooks = renderHook(() =>
+      usePersistFn(callback, {
+        action: 'debounce',
+        wait: 20,
+      }),
+    );
+    expect(callback).not.toBeCalled();
     act(() => {
-      preFn('xx');
+      times(100, () => {
+        hooks.result.current();
+      });
     });
-    expect(hooks.result.current.fn).toEqual(preFn);
-    act(hooks.result.current.updateState);
-    act(hooks.result.current.updateState);
-    act(hooks.result.current.updateState);
-    expect(hooks.result.current.fn).toEqual(preFn);
-    expect(hooks.result.current.state).toEqual(4);
+
+    jest.runAllTimers();
+    hooks.rerender();
+    expect(callback).toHaveBeenCalledTimes(1);
+  });
+
+  it('should throttle', function() {
+    const callback = jest.fn();
+    const hooks = renderHook(() =>
+      usePersistFn(callback, {
+        action: 'throttle',
+        wait: 20,
+      }),
+    );
+    expect(callback).not.toBeCalled();
+    act(() => {
+      hooks.result.current();
+      hooks.result.current();
+    });
+    hooks.rerender();
+    expect(callback).toHaveBeenCalledTimes(1);
+    act(() => {
+      hooks.result.current();
+      hooks.result.current();
+    });
+    jest.runAllTimers();
+    expect(callback).toHaveBeenCalledTimes(2);
+    act(() => {
+      hooks.result.current();
+      hooks.result.current();
+    });
+
+    expect(callback).toHaveBeenCalledTimes(3);
   });
 });

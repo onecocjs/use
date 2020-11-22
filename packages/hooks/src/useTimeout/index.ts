@@ -16,6 +16,7 @@ function useTimeout(fn: Function, options: Options): UseTimeoutReturn {
   const ready = useRef<boolean | null>(false);
   const timeout = useRef<ReturnType<typeof setTimeout> | null>();
   const callback = useRef(fn);
+
   callback.current = fn;
 
   const isReady = usePersistFn(() => ready.current);

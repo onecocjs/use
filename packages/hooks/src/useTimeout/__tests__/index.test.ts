@@ -4,7 +4,7 @@ import useTimeout from '..';
 
 describe('useTimeout', function() {
   jest.useFakeTimers();
-  it('should', function() {
+  it('should work', function() {
     const callback = jest.fn();
     renderHook(() => useTimeout(callback, { delay: 20 }));
     expect(callback).not.toBeCalled();
