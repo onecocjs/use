@@ -1,0 +1,32 @@
+import { useRef } from 'react';
+
+function useMemoized<T>(factory: () => T, deps: any[]) {
+  const { current } = useRef({
+    deps,
+    obj: undefined as undefined | T,
+    initialized: false,
+  });
+  if (current.initialized === false || !depsShallowEqual(current.deps, deps)) {
+    current.deps = deps;
+    current.obj = factory();
+    current.initialized = true;
+  }
+  return current.obj as T;
+}
+
+function depsShallowEqual(prevDeps: any[], currDeps: any[]) {
+  if (prevDeps === currDeps) return true;
+  if (prevDeps.length !== currDeps.length) return false;
+  for (let index = 0; index < currDeps.length; index++) {
+    const prev = prevDeps[index];
+    const curr = currDeps[index];
+    if (prev === curr) {
+      continue;
+    }
+    return false;
+  }
+
+  return true;
+}
+
+export default useMemoized;

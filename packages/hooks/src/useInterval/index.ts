@@ -7,11 +7,11 @@ interface Options {
 
 function useInterval(fn: () => void, options: Options) {
   const { delay, immediate } = options;
-  const fnRef = useRef<() => void>(() => {});
+  const fnRef = useRef<() => void>(fn);
   fnRef.current = fn;
   useEffect(() => {
     if (immediate) {
-      fnRef.current?.();
+      fnRef.current();
     }
     const timerId = setInterval(() => {
       fnRef.current?.();

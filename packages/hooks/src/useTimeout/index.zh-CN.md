@@ -11,6 +11,8 @@ group:
 
 # useTimeout
 
+处理 `setTimeout` 计时器函数的 Hook。
+
 # 代码演示
 
 ## 基础用法

@@ -1,5 +1,5 @@
 ---
-title: useUpdate
+title: useForceUpdate
 nav:
   title: Hooks
   path: /hooks
@@ -9,7 +9,7 @@ group:
   order: 1
 ---
 
-# useUpdate
+# useForceUpdate
 
 强制组件刷新 , 可以理解为 `class component` 中的 `this.forceUpdate()` 函数
 
@@ -22,5 +22,5 @@ group:
 # 函数签名
 
 ```ts
-useUpdate():() => void;
+useForceUpdate():() => void;
 ```

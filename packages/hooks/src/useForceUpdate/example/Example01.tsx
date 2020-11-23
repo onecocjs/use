@@ -8,11 +8,11 @@
 
 import React, { useRef } from 'react';
 import { Button } from 'antd';
-import { useUpdate } from '@onecocjs/use';
+import { useForceUpdate } from '@onecocjs/use';
 
 export default () => {
   const value = useRef(false);
-  const update = useUpdate();
+  const update = useForceUpdate();
 
   return (
     <div>

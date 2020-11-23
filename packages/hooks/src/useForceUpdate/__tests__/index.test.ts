@@ -1,14 +1,14 @@
-import { useRef } from "react";
-import { renderHook, act } from "@testing-library/react-hooks";
-import useUpdate from "..";
-import usePersistFn from "../../usePersistFn";
+import { useRef } from 'react';
+import { renderHook, act } from '@testing-library/react-hooks';
+import useForceUpdate from '..';
+import usePersistFn from '../../usePersistFn';
 
-describe("useUpdate", () => {
-  it("should update", () => {
+describe('useUpdate', () => {
+  it('should update', () => {
     const hooks = renderHook(() => {
       const ref = useRef(0);
 
-      const update = useUpdate();
+      const update = useForceUpdate();
 
       return {
         update,
@@ -23,8 +23,8 @@ describe("useUpdate", () => {
     act(hooks.result.current.onChange);
     expect(hooks.result.current.count).toEqual(1);
   });
-  it("should return same update function", () => {
-    const hooks = renderHook(() => useUpdate());
+  it('should return same update function', () => {
+    const hooks = renderHook(() => useForceUpdate());
     const preUpdate = hooks.result.current;
     hooks.rerender();
     expect(hooks.result.current).toEqual(preUpdate);

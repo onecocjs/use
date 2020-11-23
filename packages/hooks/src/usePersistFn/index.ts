@@ -1,43 +1,16 @@
 import { useRef } from 'react';
-import useStableCallback from '../useStableCallback';
-import { debounce, throttle } from 'lodash';
 
-export interface Options {
-  wait?: number;
-  leading?: boolean;
-  trailing?: boolean;
-  action: 'throttle' | 'debounce';
-}
-
-function usePersistFn<T extends (...args: any[]) => any>(
-  fn: T,
-  options?: Options,
-) {
-  const fnRef = useRef<T>(fn);
-
+function usePersistFn<T extends (...args: any[]) => any>(fn: T) {
+  const fnRef = useRef<T | null>(fn);
   fnRef.current = fn;
 
-  const wait = options?.wait ?? 1000;
+  const persistRef = useRef<T | null>(null);
 
-  if (options?.action === 'debounce') {
-    return useStableCallback(
-      debounce((...args) => fnRef.current?.(...args), wait, {
-        leading: options?.leading ?? false,
-        trailing: options?.leading ?? true,
-      }),
-      [fnRef],
-    );
+  if (!persistRef.current) {
+    persistRef.current = ((...args) => fnRef.current?.(...args)) as T;
   }
-  if (options?.action === 'throttle') {
-    return useStableCallback(
-      throttle((...args) => fnRef.current(...args), wait, {
-        leading: options?.leading ?? true,
-        trailing: options?.trailing ?? true,
-      }),
-      [fnRef],
-    );
-  }
-  return useStableCallback(((...args) => fnRef.current(...args)) as T, [fnRef]);
+
+  return persistRef.current;
 }
 
 export default usePersistFn;
