@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-function useMemoized<T>(factory: () => T, deps: any[]) {
+function useMemoized<T>(factory: () => T, deps: any[] = []) {
   const { current } = useRef({
     deps,
     obj: undefined as undefined | T,
@@ -16,7 +16,6 @@ function useMemoized<T>(factory: () => T, deps: any[]) {
 
 function depsShallowEqual(prevDeps: any[], currDeps: any[]) {
   if (prevDeps === currDeps) return true;
-  if (prevDeps.length !== currDeps.length) return false;
   for (let index = 0; index < currDeps.length; index++) {
     const prev = prevDeps[index];
     const curr = currDeps[index];

@@ -1,6 +1,6 @@
 import { throttle } from 'lodash';
 import { useRef } from 'react';
-import usePersistFn from '../usePersistFn';
+import useMemoized from '../useMemoized';
 
 interface UseThrottleOptions {
   leading?: boolean;
@@ -15,14 +15,16 @@ function useThrottleFn<T extends (...args: any) => any>(
   const fnRef = useRef<T>(fn);
   fnRef.current = fn;
 
-  const run = usePersistFn(
-    throttle<T>(
-      ((...args: any[]) => {
-        return fnRef.current(...args);
-      }) as T,
-      wait,
-      options,
-    ),
+  const run = useMemoized(
+    () =>
+      throttle<T>(
+        ((...args: any[]) => {
+          return fnRef.current(...args);
+        }) as T,
+        wait,
+        options,
+      ),
+    [],
   );
 
   const { cancel, flush } = run;

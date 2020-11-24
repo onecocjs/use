@@ -17,14 +17,28 @@ group:
 
 ## 基础用法
 
-<code src="./example/Example01.tsx" />
+<code src="./example/ExampleBasic.tsx" />
 
-## 手动触发
-
-<code src="./example/Example02.tsx" />
-
-# 函数签名
+## 签名
 
 ```ts
-useUpdate():() => void;
+useTimeout(fn: () => void,delay: number):void;
+```
+
+## 参数
+
+| 参数  | 说明                 | 类型       | 必要 | 默认值 |
+| ----- | -------------------- | ---------- | ---- | ------ |
+| fn    | 需要执行逻辑的函数   | () => void | true | -      |
+| delay | 延迟的具体时长（秒） | number     | true | -      |
+
+## 结果
+
+```tsx
+/**
+ * inline: true
+ */
+import React from 'react';
+import { Empty } from 'antd';
+export default () => <Empty description="暂无数据" />;
 ```

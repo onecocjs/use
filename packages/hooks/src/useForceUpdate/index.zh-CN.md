@@ -19,8 +19,23 @@ group:
 
 <code src="./example/Example01.tsx" />
 
-# 函数签名
+## 签名
 
 ```ts
 useForceUpdate():() => void;
 ```
+
+## 参数
+
+```tsx
+/**
+ * inline: true
+ */
+import React from 'react';
+import { Empty } from 'antd';
+export default () => <Empty description="暂无数据" />;
+```
+
+## 结果
+
+一个可以让当前组件`强制渲染一次`的函数

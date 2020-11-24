@@ -11,16 +11,13 @@ import { useTimeout } from '@onecocjs/use';
 
 export default () => {
   const [state, setState] = useState(0);
-  const { isReady } = useTimeout(
-    () => {
-      setState(state + 1);
-    },
-    { delay: 2000 },
-  );
+  useTimeout(() => {
+    setState(state + 1);
+  }, 2000);
 
   return (
     <div>
-      <h1>{JSON.stringify(isReady())}</h1>
+      <h1>{JSON.stringify(state)}</h1>
     </div>
   );
 };

@@ -11,19 +11,19 @@ describe('useDebounceFn', function() {
     const callback = jest.fn();
     const hooks = renderHook(() => useDebounceFn(callback, 20));
     expect(callback).not.toBeCalled();
-    act(hooks.result.current.run);
-    act(hooks.result.current.run);
-    act(hooks.result.current.run);
+    act(hooks.result.current);
+    act(hooks.result.current);
+    act(hooks.result.current);
     jest.runAllTimers();
     expect(callback).toBeCalledTimes(1);
     act(() => {
-      hooks.result.current.run();
+      hooks.result.current();
       hooks.result.current.cancel();
     });
     jest.runAllTimers();
     expect(callback).toBeCalledTimes(1);
     act(() => {
-      hooks.result.current.run();
+      hooks.result.current();
       hooks.result.current.flush();
     });
     expect(callback).toBeCalledTimes(2);

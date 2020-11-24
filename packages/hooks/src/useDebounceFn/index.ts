@@ -4,18 +4,20 @@ import usePersistFn from '../usePersistFn';
 import useMemoized from '../useMemoized';
 
 interface UseDebounceFnOptions {
+  /** 指定在延迟开始前调用。 */
   leading?: boolean;
+  /** 指定在延迟结束后调用。 */
   trailing?: boolean;
 }
 
 function useDebounceFn<T extends (...args: any) => any>(
   fn: T,
-  wait?: number,
+  wait: number,
   options?: UseDebounceFnOptions,
 ) {
   const fnRef = useRef<T>(fn);
   fnRef.current = fn;
-  const run = useMemoized(
+  return useMemoized(
     () =>
       debounce<T>(
         ((...args) => {
@@ -26,14 +28,6 @@ function useDebounceFn<T extends (...args: any) => any>(
       ),
     [],
   );
-
-  const { cancel, flush } = run;
-
-  return {
-    run,
-    cancel,
-    flush,
-  };
 }
 
 export default useDebounceFn;

@@ -19,8 +19,25 @@ group:
 
 <code src="./example/Example01.tsx" />
 
-# 函数签名
+## 签名
 
 ```ts
 useEffectOnce( fn: () => void | (() => void | undefined) )
+```
+
+## 参数
+
+| 参数 | 说明        | 类型        | 必要        | 默认值      |
+| ---- | ----------- | ----------- | ----------- | ----------- |
+| fn   | effect 函数 | () => (void | (() => void | undefined)) | true | - |
+
+## 结果
+
+```tsx
+/**
+ * inline: true
+ */
+import React from 'react';
+import { Empty } from 'antd';
+export default () => <Empty description="暂无数据" />;
 ```
