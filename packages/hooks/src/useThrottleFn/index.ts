@@ -3,19 +3,21 @@ import { useRef } from 'react';
 import useMemoized from '../useMemoized';
 
 interface UseThrottleOptions {
+  /** 指定调用在节流开始前 */
   leading?: boolean;
+  /** 指定调用在节流结束后。 */
   trailing?: boolean;
 }
 
 function useThrottleFn<T extends (...args: any) => any>(
   fn: T,
-  wait?: number,
+  wait: number,
   options?: UseThrottleOptions,
 ) {
   const fnRef = useRef<T>(fn);
   fnRef.current = fn;
 
-  const run = useMemoized(
+  return useMemoized(
     () =>
       throttle<T>(
         ((...args: any[]) => {
@@ -26,14 +28,6 @@ function useThrottleFn<T extends (...args: any) => any>(
       ),
     [],
   );
-
-  const { cancel, flush } = run;
-
-  return {
-    run,
-    cancel,
-    flush,
-  };
 }
 
 export default useThrottleFn;

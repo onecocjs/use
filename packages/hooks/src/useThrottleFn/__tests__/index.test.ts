@@ -6,8 +6,7 @@ describe('useThrottleFn', function() {
   it('xx', function() {
     const callback = jest.fn();
     const hooks = renderHook(() => {
-      const { run } = useThrottleFn(callback, 1000);
-      return run;
+      return useThrottleFn(callback, 1000);
     });
     expect(callback).not.toBeCalled();
     act(() => {
