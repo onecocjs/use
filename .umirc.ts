@@ -11,7 +11,7 @@ export default defineConfig({
     loading: '@/Loading',
   },
   resolve: {
-    includes: ['docs', 'packages/hooks/src'],
+    includes: ['docs', 'packages'],
   },
   extraBabelPlugins: [
     [
