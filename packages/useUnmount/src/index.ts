@@ -1,4 +1,4 @@
-import useEffectOnce from '../../useEffectOnce/lib';
+import useEffectOnce from '@onecocjs/use.effectonce';
 
 function useUnmount(fn: () => void) {
   useEffectOnce(() => {

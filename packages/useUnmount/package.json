@@ -25,5 +25,8 @@
   },
   "bugs": {
     "url": "https://github.com/onecocjs/use/issues"
+  },
+  "dependencies": {
+    "@onecocjs/use.effectonce": "^0.0.0"
   }
 }

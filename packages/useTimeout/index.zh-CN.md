@@ -6,7 +6,6 @@ nav:
 group:
   title: Atom
   path: /atom
-  order: 1
 ---
 
 # useTimeout

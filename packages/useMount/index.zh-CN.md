@@ -6,7 +6,7 @@ nav:
 group:
   title: LifeCycle
   path: /life-cycle
-  order: 2
+  order: 3
 ---
 
 # useMount

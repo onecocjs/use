@@ -4,9 +4,9 @@ nav:
   title: Hooks
   path: /hooks
 group:
-  title: Atom
-  path: /atom
-  order: 1
+  title: Function
+  path: /function
+  order: 2
 ---
 
 # useDebounceFn

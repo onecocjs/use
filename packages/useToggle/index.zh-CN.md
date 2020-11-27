@@ -4,8 +4,8 @@ nav:
   title: Hooks
   path: /hooks
 group:
-  title: Atom
-  path: /atom
+  title: State
+  path: /state
   order: 1
 ---
 
