@@ -1,13 +1,14 @@
 ---
-
 title: useInterval
 nav:
-title: Hooks
-path: /hooks
+  title: Hooks
+  path: /hooks
 group:
-title: Atom
-path: /atom
----# useTimeout
+  title: Atom
+  path: /atom
+---
+
+# useTimeout
 
 处理 `setInterval` 计时器函数的 Hooks。
 
