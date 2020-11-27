@@ -21,7 +21,7 @@
     "url": "git+https://github.com/onecocjs/use.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "npx rollup --config rollup.config.js"
   },
   "bugs": {
     "url": "https://github.com/onecocjs/use/issues"

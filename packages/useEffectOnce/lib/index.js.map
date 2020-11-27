@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sources":["../src/index.ts"],"sourcesContent":["import { EffectCallback, useEffect } from \"react\";\n\nfunction useEffectOnce(effectFn: EffectCallback) {\n  useEffect(effectFn, []);\n}\n\nexport default useEffectOnce;\n"],"names":["effectFn","useEffect"],"mappings":"2GAEA,SAAuBA,GACrBC,YAAUD,EAAU"}
