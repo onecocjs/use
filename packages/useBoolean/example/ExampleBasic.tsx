@@ -3,7 +3,7 @@ import { Switch, Button, Space } from 'antd';
 import useBoolean from '@onecocjs/use.boolean';
 
 export default function() {
-  const { state, toggle } = useBoolean(false, true);
+  const { state, toggle } = useBoolean();
 
   return (
     <>

@@ -1,0 +1,47 @@
+{
+  "name": "@onecocjs/use",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "ityuany <519495771@qq.com>",
+  "homepage": "https://github.com/onecocjs/use#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onecocjs/use.git"
+  },
+  "scripts": {
+    "build": "npx rollup --config rollup.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/onecocjs/use/issues"
+  },
+  "dependencies": {
+    "@onecocjs/use.boolean": "^0.0.0",
+    "@onecocjs/use.debouncefn": "^0.0.0",
+    "@onecocjs/use.effectonce": "^0.0.0",
+    "@onecocjs/use.forceupdate": "^0.0.0",
+    "@onecocjs/use.interval": "^0.0.0",
+    "@onecocjs/use.isomorphiclayouteffect": "^0.0.0",
+    "@onecocjs/use.lockfn": "^0.0.0",
+    "@onecocjs/use.map": "^0.0.0",
+    "@onecocjs/use.memoized": "^0.0.0",
+    "@onecocjs/use.mount": "^0.0.0",
+    "@onecocjs/use.persistfn": "^0.0.0",
+    "@onecocjs/use.previous": "^0.0.0",
+    "@onecocjs/use.throttlefn": "^0.0.0",
+    "@onecocjs/use.timeout": "^0.0.0",
+    "@onecocjs/use.toggle": "^0.0.0",
+    "@onecocjs/use.unmount": "^0.0.0"
+  }
+}
