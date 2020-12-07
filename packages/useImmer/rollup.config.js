@@ -11,7 +11,7 @@ export default [
     output: {
       file: `${__dirname}/lib/index.js`,
       format: 'cjs',
-      name: 'useImmer',
+      name: 'useInterval',
       sourcemap: true,
       exports: 'named',
     },
