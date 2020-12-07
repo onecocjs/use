@@ -21,7 +21,8 @@
     "url": "git+https://github.com/onecocjs/use.git"
   },
   "scripts": {
-    "build": "npx rollup --config rollup.config.js"
+    "build": "npx rollup --config rollup.config.js",
+    "build:w": "npx rollup --config rollup.config.js -w"
   },
   "bugs": {
     "url": "https://github.com/onecocjs/use/issues"

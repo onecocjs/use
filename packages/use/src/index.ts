@@ -14,7 +14,7 @@ import useUnmount from '@onecocjs/use.unmount';
 import usePrevious from '@onecocjs/use.previous';
 import useThrottleFn from '@onecocjs/use.throttlefn';
 
-export default {
+export {
   useEffectOnce,
   useForceUpdate,
   useInterval,
