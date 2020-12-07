@@ -1,6 +1,6 @@
 {
   "name": "@onecocjs/use.map",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.1-alpha.1",
   "description": "> TODO: description",
   "author": "ityuany <519495771@qq.com>",
   "homepage": "https://github.com/onecocjs/use#readme",
@@ -28,7 +28,7 @@
     "url": "https://github.com/onecocjs/use/issues"
   },
   "dependencies": {
-    "@onecocjs/use.forceupdate": "^0.0.1-alpha.0",
-    "@onecocjs/use.memoized": "^0.0.1-alpha.0"
+    "@onecocjs/use.forceupdate": "^0.0.1-alpha.1",
+    "@onecocjs/use.memoized": "^0.0.1-alpha.1"
   }
 }
