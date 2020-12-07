@@ -95,7 +95,7 @@ export function useImmerReducer<S = any, A = any>(
   initialState: S,
   reducer: Reducer<S, A>,
   initialAction?: any,
-) {
+): { state: S; dispatch: <T>(arg: T) => T } {
   const cachedReducer = useMemo(() => produce(reducer), [reducer]);
   const [state, dispatch] = useReducer(
     cachedReducer,
@@ -105,5 +105,5 @@ export function useImmerReducer<S = any, A = any>(
   return {
     state,
     dispatch,
-  };
+  } as any;
 }

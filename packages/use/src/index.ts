@@ -13,8 +13,12 @@ import useToggle from '@onecocjs/use.toggle';
 import useUnmount from '@onecocjs/use.unmount';
 import usePrevious from '@onecocjs/use.previous';
 import useThrottleFn from '@onecocjs/use.throttlefn';
+import { useImmer, useImmerReducer, useImmerMethod } from '@onecocjs/use.immer';
 
 export {
+  useImmer,
+  useImmerReducer,
+  useImmerMethod,
   useEffectOnce,
   useForceUpdate,
   useInterval,

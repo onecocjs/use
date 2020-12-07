@@ -32,6 +32,7 @@
     "@onecocjs/use.debouncefn": "^0.0.1-alpha.0",
     "@onecocjs/use.effectonce": "^0.0.1-alpha.0",
     "@onecocjs/use.forceupdate": "^0.0.1-alpha.0",
+    "@onecocjs/use.immer": "^0.0.1-alpha.0",
     "@onecocjs/use.interval": "^0.0.1-alpha.0",
     "@onecocjs/use.isomorphiclayouteffect": "^0.0.1-alpha.0",
     "@onecocjs/use.lockfn": "^0.0.1-alpha.0",

@@ -15,7 +15,6 @@ function useMemoized<T>(factory: () => T, deps: any[] = []) {
 }
 
 function depsShallowEqual(prevDeps: any[], currDeps: any[]) {
-  if (prevDeps === currDeps) return true;
   for (let index = 0; index < currDeps.length; index++) {
     const prev = prevDeps[index];
     const curr = currDeps[index];
